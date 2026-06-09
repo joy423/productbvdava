@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProductBvdava Cam</title>
+
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+#topbar {
+    height: 80px;
+    background: #222;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#slider {
+    width: 90%;
+}
+
+#value {
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+#camera {
+    width: 100%;
+    height: calc(100vh - 80px);
+    border: none;
+}
+</style>
+</head>
+<body>
+
+<div id="topbar">
+    <input
+        id="slider"
+        type="range"
+        min="0"
+        max="180"
+        value="90">
+    <div id="value">90°</div>
+</div>
+
+<iframe
+    id="camera"
+    src="https://vdo.ninja/?room=productbvdava&hash=9dad"
+    allow="camera;microphone;autoplay;fullscreen">
+</iframe>
+
+<script>
+const slider = document.getElementById("slider");
+const value = document.getElementById("value");
+
+slider.addEventListener("input", function() {
+    value.textContent = this.value + "°";
+});
+</script>
+
+</body>
+</html>
